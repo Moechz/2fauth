@@ -1,0 +1,97 @@
+{
+  "app_id": "twofauthdocker",
+  "title": "2fauth",
+  "image": "2fauth/2fauth:6.1.3",
+  "repo_name": "2fauth",
+  "mode": "wrapper",
+  "container_port": 8000,
+  "category": [
+    "Utilities"
+  ],
+  "volumes": [
+    {
+      "host": "/Volume1/DockerAppData/twofauthdocker/storage",
+      "container": "/2fauth/storage"
+    }
+  ],
+  "env": {
+    "TZ": "Asia/Shanghai"
+  },
+  "auth": "https://github.com/Bubka",
+  "upstream_url": "https://github.com/Bubka/2FAuth",
+  "upstream_license": "AGPL-3.0",
+  "descript": "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon.",
+  "release_note": "1. First release.",
+  "important": "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN.",
+  "probe": {
+    "user_in_image": "1000:1000",
+    "entrypoint": [
+      "/usr/local/bin/entrypoint.sh"
+    ],
+    "cmd": null,
+    "exposed_ports": [
+      8000
+    ],
+    "declared_volumes": [],
+    "image_healthcheck": [],
+    "digest": "2fauth/2fauth@sha256:0b2e2ea74f06ccddbc32b28495adfc92c8f5535cec1b3141dca95ee7c3c5189f",
+    "architecture": "x86_64",
+    "platforms": [],
+    "http_client_in_image": "wget",
+    "trial_run": {
+      "ok": true,
+      "http_code": "500",
+      "state": "running",
+      "paths": [
+        "/2fauth/storage",
+        "/srv",
+        "/2fauth",
+        "/srv/database"
+      ],
+      "host_port": 18000,
+      "log_tail": "assport-migrations] assets.  \n\n  Copying directory [vendor/laravel/passport/database/migrations] to [database/migrations]  DONE\n\n\n                                                                                \n                           APPLICATION IN PRODUCTION.                           \n                                                                                \n\n   WARN  Command cancelled.  \n\n   INFO  Personal access client created successfully.  \n\n  Client ID ................................................................ 1  \n  Client secret ..................... VI97PVVIIi4EWdtuAhZmYym2M7VAzJVe2jcBSkTX  \n\n   INFO  Password grant client created successfully.  \n\n  Client ID ................................................................ 2  \n  Client secret ..................... 3Nm4JGB48B84yBF3PNQisKH4dJ7IlLtt86qZK4u3  \n\n   INFO  Compiled services and packages files removed successfully.  \n\n\n   INFO  Caching framework bootstrap, configuration, and metadata.  \n\n  config ........................................................ 33.00ms DONE\n  events ......................................................... 3.03ms DONE\n  routes ........................................................ 43.82ms DONE\n  views ......................................................... 64.46ms DONE\n\ntime=\"2026-11-09T16:24:38Z\" level=info msg=\"load configuration from file\" file=/etc/supervisor/supervisord.conf\n172.17.0.1 - - [09/Nov/2026:16:24:40 +0000] \"GET / HTTP/1.1\" 500 44 \"-\" \"curl/7.81.0\"",
+      "files_in_mounts": ""
+    },
+    "docker_hub": {},
+    "github": {
+      "owner": "Bubka",
+      "repo": "2FAuth",
+      "description": "A Web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes",
+      "license": "AGPL-3.0",
+      "homepage": "https://docs.2fauth.app/"
+    }
+  },
+  "healthcheck": [
+    "CMD-SHELL",
+    "wget -q -O /dev/null http://127.0.0.1:8000/ || exit 1"
+  ],
+  "platform": "x86_64",
+  "user": "1000:1000",
+  "publisher": "Moechz",
+  "compose_project": "twofauthdocker",
+  "github_repo": "2fauth",
+  "upstream_version": "6.1.3",
+  "release_tag_prefix": "v",
+  "version": "6.1.3-1",
+  "help": "https://github.com/Moechz/2fauth/issues",
+  "official": "https://github.com/Bubka/2FAuth",
+  "license": "AGPL-3.0",
+  "docker_socket": false,
+  "group_add": [],
+  "platforms": [
+    "x86_64",
+    "aarch64"
+  ],
+  "translations": {
+    "zh-cn": {
+      "descript": "自建两步验证（2FA）管理器，支持 TOTP/HOTP，数据保存在本地。",
+      "important": "首次使用请打开网页完成初始化。数据保存在 DockerAppData/twofauthdocker，重启和升级不会丢失。容器以 uid 1000 运行，挂载目录需对该用户可读。需要 DockerEngine；Docker Hub 不可达时先配置镜像加速。卸载并删除数据前请备份。局域网内为 HTTP。"
+    },
+    "zh-hk": {
+      "descript": "自建两步验证（2FA）管理器，支持 TOTP/HOTP，数据保存在本地。",
+      "important": "首次使用請開啟網頁完成初始化。資料保存在 DockerAppData/twofauthdocker，重新啟動和升級不會遺失。容器以 uid 1000 運行，掛載目錄需對該使用者可讀。需要 DockerEngine；Docker Hub 不可達時先設定鏡像加速。解除安裝並刪除資料前請備份。區域網路內為 HTTP。"
+    }
+  },
+  "host_port": 8040,
+  "entrypoint_file": "specs/twofauth-entrypoint.sh"
+}

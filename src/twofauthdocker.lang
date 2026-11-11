@@ -1,0 +1,195 @@
+# ===========================================================================
+# Multilingual file for the TOS 7 Docker application "twofauthdocker".
+# File name MUST be: <appid>.lang.  23-language superset (14 required by TOS).
+# The App Center picks the text matching the user's device language;
+# untranslated nodes fall back to English, which the official guide allows.
+# Fields: name (app title), auth (upstream author), descript (up to 512
+# chars), release_note, important (up to 512 chars).
+# Translations come from tosapp.json "translations"; run
+#   tosdocker lang <app>          to re-render this file
+#   tosdocker translate <app>     to see what still needs translating
+# ===========================================================================
+[en-us]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[zh-cn]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "自建两步验证（2FA）管理器，支持 TOTP/HOTP，数据保存在本地。"
+release_note = "1. First release."
+important    = "首次使用请打开网页完成初始化。数据保存在 DockerAppData/twofauthdocker，重启和升级不会丢失。容器以 uid 1000 运行，挂载目录需对该用户可读。需要 DockerEngine；Docker Hub 不可达时先配置镜像加速。卸载并删除数据前请备份。局域网内为 HTTP。"
+
+[zh-hk]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "自建两步验证（2FA）管理器，支持 TOTP/HOTP，数据保存在本地。"
+release_note = "1. First release."
+important    = "首次使用請開啟網頁完成初始化。資料保存在 DockerAppData/twofauthdocker，重新啟動和升級不會遺失。容器以 uid 1000 運行，掛載目錄需對該使用者可讀。需要 DockerEngine；Docker Hub 不可達時先設定鏡像加速。解除安裝並刪除資料前請備份。區域網路內為 HTTP。"
+
+[fr-fr]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[de-de]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[it-it]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[es-es]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[hu-hu]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[ja-jp]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[ko-kr]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[pl-pl]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[ru-ru]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[tr-tr]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[pt-pt]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[ar-sa]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[cs-cz]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[he-il]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[id-id]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[nb-no]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[nl-nl]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[sv-se]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[th-th]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
+[vi-vn]
+name         = "2fauth"
+auth         = "https://github.com/Bubka"
+version      = "@@VERSION@@"
+descript     = "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon."
+release_note = "1. First release."
+important    = "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN."
+
