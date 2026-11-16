@@ -25,6 +25,52 @@ A four-file TOS Docker application archive (`twofauthdocker.tar.gz`) that instal
 
 
 
+## Privacy
+
+This application runs entirely on your NAS. **The developer does not collect, receive or
+have access to any data processed by the application.** There is no telemetry, no analytics
+and no account.
+
+| Topic | Detail |
+|---|---|
+| Data processed | The application's configuration, database, caches and logs, plus any files you create with it. |
+| Where it is stored | The application data folder (`/Volume1/DockerAppData/twofauthdocker/`) on your NAS. Nothing is uploaded to the developer. |
+| Retention period | Until **you** delete it. Logs are rotated or size-limited by the application; uninstalling keeps the data unless you tick “delete data”. |
+| Your rights | **Access / export**: copy the data folder. **Correct**: change the values in the web UI. **Delete**: uninstall with “delete data”, or remove the folder after stopping the container. |
+| Deletion channel | Delete the folder yourself, or email **moechz@163.com** (answered within 30 days). |
+| Security measures | Container runs as uid 1000 (never root), no `privileged`, no host network, no `cap_add`, no Docker socket, one published port; image tag pinned and refreshed on upstream fixes. |
+| Children | Not directed at children. |
+
+**Full privacy policy:** [PRIVACY.md](PRIVACY.md) —
+<https://github.com/Moechz/2fauth/blob/main/PRIVACY.md> — and the website version at
+<https://www.moechz.com/privacy.html>.
+
+## Third-party services (API disclosure)
+
+The developer operates no server in this path. The application contacts only the services
+**you configure**, plus (optionally) an update check and the image registry.
+
+| Service | Endpoint | Data sent | Destination / region |
+|---|---|---|---|
+| Services you configure in the app | the address you enter | only the data that feature needs | normally your own LAN or the provider you chose |
+| Update check (if enabled) | the upstream project's release feed | current version string | GitHub, US |
+| Image pull | `registry-1.docker.io` or your registry mirror | anonymous pull | Docker Hub, US / your mirror |
+
+See `PRIVACY.md` §6 for the full table. Disable any integration in the app's settings if you
+do not want it.
+
+## Licence and attributions
+
+| Component | Licence | Notes |
+|---|---|---|
+| 2fauth | AGPL-3.0 | upstream application, used unmodified inside the image |
+| Container image `2fauth/2fauth:6.1.3` | see the image's own metadata | pulled from Docker Hub at install time |
+| This packaging | GPL-3.0 (see `LICENSE`) | compose file, metadata, translations, icon |
+
+“2fauth”, “TerraMaster” and “TOS” are trademarks of their respective owners. This is an
+independent community package by Moechz and is not affiliated with the upstream project or
+TerraMaster. Full details: [NOTICE.md](NOTICE.md).
+
 ## Design highlights
 
 - **Non-root.** `user: "1000:1000"`; verified on real hardware (the container reports uid 1000).
@@ -81,9 +127,6 @@ bash test/install-and-verify.sh                  # on-device E2E (needs root)
    repository URL, architecture `x86_64`.
 4. Version Management → Add Version `6.1.3-1` → automated validation → review.
 
-## License / branding
-
-2fauth is distributed by its upstream authors under **AGPL-3.0**. The container image is the official image from Docker Hub (`2fauth/2fauth:6.1.3`) and is used unmodified; no upstream source code is redistributed here. This packaging is an independent community submission by Moechz and is not affiliated with the upstream project or TerraMaster.
 
 ## Limitations
 
@@ -92,3 +135,9 @@ bash test/install-and-verify.sh                  # on-device E2E (needs root)
 ---
 
 Packaged for TOS 7 by Moechz. Upstream image used unmodified from Docker Hub.
+
+## Support
+
+- Issues and questions: <https://github.com/Moechz/2fauth/issues>
+- Email: moechz@163.com
+- Privacy: [PRIVACY.md](PRIVACY.md) · Licence: [NOTICE.md](NOTICE.md)
