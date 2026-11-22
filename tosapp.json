@@ -1,7 +1,7 @@
 {
   "app_id": "twofauthdocker",
   "title": "2fauth",
-  "image": "2fauth/2fauth:6.1.3",
+  "image": "2fauth/2fauth:9.0.2",
   "repo_name": "2fauth",
   "mode": "wrapper",
   "container_port": 8000,
@@ -20,47 +20,9 @@
   "auth": "https://github.com/Bubka",
   "upstream_url": "https://github.com/Bubka/2FAuth",
   "upstream_license": "AGPL-3.0",
-  "descript": "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes. Packaged for TerraMaster TOS 7: the official Docker Hub image runs as a container on your NAS, keeps its data in the application data folder (so it survives restarts and updates), and is opened from its desktop icon.",
-  "release_note": "1. First release.",
-  "important": "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/twofauthdocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN.",
-  "probe": {
-    "user_in_image": "1000:1000",
-    "entrypoint": [
-      "/usr/local/bin/entrypoint.sh"
-    ],
-    "cmd": null,
-    "exposed_ports": [
-      8000
-    ],
-    "declared_volumes": [],
-    "image_healthcheck": [],
-    "digest": "2fauth/2fauth@sha256:0b2e2ea74f06ccddbc32b28495adfc92c8f5535cec1b3141dca95ee7c3c5189f",
-    "architecture": "x86_64",
-    "platforms": [],
-    "http_client_in_image": "wget",
-    "trial_run": {
-      "ok": true,
-      "http_code": "500",
-      "state": "running",
-      "paths": [
-        "/2fauth/storage",
-        "/srv",
-        "/2fauth",
-        "/srv/database"
-      ],
-      "host_port": 18000,
-      "log_tail": "assport-migrations] assets.  \n\n  Copying directory [vendor/laravel/passport/database/migrations] to [database/migrations]  DONE\n\n\n                                                                                \n                           APPLICATION IN PRODUCTION.                           \n                                                                                \n\n   WARN  Command cancelled.  \n\n   INFO  Personal access client created successfully.  \n\n  Client ID ................................................................ 1  \n  Client secret ..................... VI97PVVIIi4EWdtuAhZmYym2M7VAzJVe2jcBSkTX  \n\n   INFO  Password grant client created successfully.  \n\n  Client ID ................................................................ 2  \n  Client secret ..................... 3Nm4JGB48B84yBF3PNQisKH4dJ7IlLtt86qZK4u3  \n\n   INFO  Compiled services and packages files removed successfully.  \n\n\n   INFO  Caching framework bootstrap, configuration, and metadata.  \n\n  config ........................................................ 33.00ms DONE\n  events ......................................................... 3.03ms DONE\n  routes ........................................................ 43.82ms DONE\n  views ......................................................... 64.46ms DONE\n\ntime=\"2026-11-09T16:24:38Z\" level=info msg=\"load configuration from file\" file=/etc/supervisor/supervisord.conf\n172.17.0.1 - - [09/Nov/2026:16:24:40 +0000] \"GET / HTTP/1.1\" 500 44 \"-\" \"curl/7.81.0\"",
-      "files_in_mounts": ""
-    },
-    "docker_hub": {},
-    "github": {
-      "owner": "Bubka",
-      "repo": "2FAuth",
-      "description": "A Web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes",
-      "license": "AGPL-3.0",
-      "homepage": "https://docs.2fauth.app/"
-    }
-  },
+  "descript": "2FAuth is a self-hosted two-factor authentication manager for your NAS. It stores TOTP, HOTP and Steam accounts, generates one-time codes in the browser, and supports groups, search, import/export and optional sharing between local users. All application data stays in the application data folder; the developer operates no telemetry or cloud account.",
+  "release_note": "9.0.2-1: upstream 6.1.3 -> 9.0.2 (security release; CVE-2026-109618/109619/123007/123633 + GHSA advisories). Review remediation C3/C4/C5/C6/C8/C9/C10/T1/F3/F5/F7/F10: complete privacy policy (APP_KEY/encryption, WebAuthn, backups, logs, outbound endpoints), third-party API table, accurate descriptions, README layout, clean shutdown, relative assets, no secrets in logs. Migration: back up storage/ + app_key; DB migrates automatically; pre-8.0 PATs must be re-created.",
+  "important": "First run: open the UI and create the administrator account. Data (SQLite DB, APP_KEY, logs) lives in /Volume1/DockerAppData/twofauthdocker/storage and survives restarts/updates; back up that folder and app_key before upgrading or uninstalling. Runs as uid 1000. WebAuthn and camera QR scanning require HTTPS; on LAN HTTP use password and manual secret entry. The app may fetch account icons from jsDelivr/2fa.directory and check GitHub for releases (disable in Admin > App Setup).",
   "healthcheck": [
     "CMD-SHELL",
     "wget -q -O /dev/null http://127.0.0.1:8000/ || exit 1"
@@ -70,10 +32,10 @@
   "publisher": "Moechz",
   "compose_project": "twofauthdocker",
   "github_repo": "2fauth",
-  "upstream_version": "6.1.3",
+  "upstream_version": "9.0.2",
   "release_tag_prefix": "v",
-  "version": "6.1.3-3",
-  "help": "https://github.com/Moechz/2fauth/issues",
+  "version": "9.0.2-1",
+  "help": "https://github.com/Moechz/2fauth/blob/main/PRIVACY.md",
   "official": "https://github.com/Bubka/2FAuth",
   "license": "AGPL-3.0",
   "docker_socket": false,
@@ -84,14 +46,16 @@
   ],
   "translations": {
     "zh-cn": {
-      "descript": "自建两步验证（2FA）管理器，支持 TOTP/HOTP，数据保存在本地。",
-      "important": "首次使用请打开网页完成初始化。数据保存在 DockerAppData/twofauthdocker，重启和升级不会丢失。容器以 uid 1000 运行，挂载目录需对该用户可读。需要 DockerEngine；Docker Hub 不可达时先配置镜像加速。卸载并删除数据前请备份。局域网内为 HTTP。"
+      "descript": "2FAuth 是自建的两步验证（2FA）管理器：保存 TOTP、HOTP 和 Steam 账户，在浏览器中生成一次性验证码，支持分组、搜索、导入/导出，以及可选的本地用户间共享。所有数据保存在应用数据目录，开发者不收集遥测数据。",
+      "release_note": "9.0.2-1：上游由 6.1.3 升级到 9.0.2（安全版本，修复 CVE-2026-109618/109619/123007/123633 及多项 GHSA 公告）。按审核意见整改 C3/C4/C5/C6/C8/C9/C10/T1/F3/F5/F7/F10：补全隐私政策（APP_KEY/加密、WebAuthn、备份、日志、出网端点）、第三方 API 披露表、准确描述、README 目录结构、干净停止、前端资源相对路径、日志不含密钥。迁移：先备份 storage/ 与 app_key；数据库自动迁移；8.0 之前的个人访问令牌需重新创建。",
+      "important": "首次使用请打开网页创建管理员账户。数据（SQLite 数据库、APP_KEY、日志）保存在 /Volume1/DockerAppData/twofauthdocker/storage，重启和升级不会丢失；升级或卸载前请备份该目录和 app_key。容器以 uid 1000 运行。WebAuthn 和摄像头扫码需要 HTTPS；局域网 HTTP 下请使用密码登录和手动输入密钥。应用可能从 jsDelivr/2fa.directory 获取账户图标并检查 GitHub 版本（可在后台关闭）。对外暴露时请使用 TLS 反向代理。"
     },
     "zh-hk": {
-      "descript": "自建两步验证（2FA）管理器，支持 TOTP/HOTP，数据保存在本地。",
-      "important": "首次使用請開啟網頁完成初始化。資料保存在 DockerAppData/twofauthdocker，重新啟動和升級不會遺失。容器以 uid 1000 運行，掛載目錄需對該使用者可讀。需要 DockerEngine；Docker Hub 不可達時先設定鏡像加速。解除安裝並刪除資料前請備份。區域網路內為 HTTP。"
+      "descript": "2FAuth 是自建的兩步驗證（2FA）管理器：保存 TOTP、HOTP 和 Steam 帳戶，在瀏覽器中產生一次性驗證碼，支援分組、搜尋、匯入/匯出，以及可選的本機使用者間共享。所有資料保存在應用資料目錄，開發者不收集遙測資料。",
+      "release_note": "9.0.2-1：上游由 6.1.3 升級到 9.0.2（安全版本，修復 CVE-2026-109618/109619/123007/123633 及多項 GHSA 公告）。按審核意見整改 C3/C4/C5/C6/C8/C9/C10/T1/F3/F5/F7/F10：補全隱私政策（APP_KEY/加密、WebAuthn、備份、日誌、出網端點）、第三方 API 披露表、準確描述、README 目錄結構、乾淨停止、前端資源相對路徑、日誌不含密鑰。遷移：先備份 storage/ 與 app_key；資料庫自動遷移；8.0 之前的個人存取權杖需重新建立。",
+      "important": "首次使用請開啟網頁建立管理員帳戶。資料（SQLite 資料庫、APP_KEY、日誌）保存在 /Volume1/DockerAppData/twofauthdocker/storage，重新啟動和升級不會遺失；升級或解除安裝前請備份該目錄和 app_key。容器以 uid 1000 運行。WebAuthn 和攝影機掃碼需要 HTTPS；區域網路 HTTP 下請使用密碼登入和手動輸入密鑰。應用可能從 jsDelivr/2fa.directory 取得帳戶圖示並檢查 GitHub 版本（可在後台關閉）。對外暴露時請使用 TLS 反向代理。"
     }
   },
   "host_port": 8040,
-  "entrypoint_file": "specs/twofauth-entrypoint.sh"
+  "entrypoint_file": "src/entrypoint.sh"
 }

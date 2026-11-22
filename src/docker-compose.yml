@@ -1,7 +1,9 @@
 # ===========================================================================
 # 2fauth for TerraMaster TOS 7 (Docker application)
 # ===========================================================================
-# Upstream image : 2fauth/2fauth:6.1.3 (Docker Hub, used unmodified)
+# Upstream image : 2fauth/2fauth:9.0.2 (Docker Hub, used unmodified)
+#                  multi-arch OCI index:
+#                  sha256:6774efa7c612e424eb17a54e2373524d9a04af6cad7e38d85d76fed87f6a48bd
 #                  -> https://github.com/Bubka/2FAuth
 #
 # Ports   : host 8040 -> container 8000. The host port is in the
@@ -15,8 +17,11 @@
 #           non-root user, no privileged mode, no network_mode: host, no
 #           cap_add, explicit TZ, a healthcheck on the only service, and
 #           x-app-meta as the last block.
-# Wrapper : the upstream image runs as root; the entrypoint below replaces
-#           it so the service can run as an unprivileged user.
+# Wrapper : the upstream image does not create the framework directories on an
+#           empty mounted volume, and its entrypoint keeps the shell as PID 1
+#           while supervisord runs as a child. The entrypoint below prepares the
+#           volume, initialises Passport quietly, and forwards the stop signal
+#           to supervisord so the service stops cleanly.
 # Escaping: docker compose interpolates ${VAR}/$VAR in compose files, so any
 #           '$' meant for the shell is written '$$'.
 #
@@ -28,10 +33,11 @@
 
 services:
   twofauthdocker:
-    image: 2fauth/2fauth:6.1.3
+    image: 2fauth/2fauth:9.0.2
     container_name: twofauthdocker
     restart: unless-stopped
     user: "1000:1000"
+    stop_grace_period: 20s
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
@@ -40,6 +46,11 @@ services:
       - "8040:8000"
     environment:
       TZ: "Asia/Shanghai"
+      # 2FAuth logs login e-mail addresses and client IPs at info/notice level.
+      # This package raises the threshold so those values do not persist in
+      # storage/logs/laravel.log (review finding F10). The application keeps its
+      # own audit trail in the database instead.
+      LOG_LEVEL: "warning"
     volumes:
       - /Volume1/DockerAppData/twofauthdocker/storage:/2fauth/storage
     healthcheck:
